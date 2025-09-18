@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Social Media Services Design System */
+@layer base {
+  :root {
+    /* Brand Colors */
+    --primary: 323 100% 50%; /* Vibrant pink #FF007A */
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 323 89% 68%; /* Light pink */
+    
+    --secondary: 269 91% 48%; /* Deep purple #7928CA */
+    --secondary-foreground: 0 0% 98%;
+    
+    --accent: 202 100% 50%; /* Bright blue #00B4FF */
+    --accent-foreground: 0 0% 98%;
+    
+    --success: 142 70% 45%; /* Success green */
+    --warning: 38 100% 50%; /* Gold */
+    
+    /* TikTok Colors */
+    --tiktok: 174 100% 56%; /* TikTok teal #25F4EE */
+    --tiktok-pink: 348 83% 58%; /* TikTok pink #FE2C55 */
+    
+    /* Background & Surfaces */
+    --background: 0 0% 4%; /* Dark background */
+    --foreground: 0 0% 98%;
+    
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 95%;
+    
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
+    
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
+    
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 323 100% 50%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --radius: 0.75rem;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-tiktok: linear-gradient(135deg, hsl(var(--tiktok)), hsl(var(--tiktok-pink)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary)));
+    --gradient-surface: linear-gradient(145deg, hsl(0 0% 6%), hsl(0 0% 9%));
+    
+    /* Shadows */
+    --shadow-primary: 0 10px 40px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.2);
+    --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.4);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    font-family: 'Inter', sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer components {
+  /* Premium Button Variants */
+  .btn-premium {
+    @apply relative overflow-hidden px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300;
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-primary);
+  }
+  
+  .btn-premium:hover {
+    @apply scale-105;
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .btn-premium::before {
+    @apply absolute inset-0 bg-white/20 translate-x-[-100%] transition-transform duration-700;
+    content: '';
+  }
+  
+  .btn-premium:hover::before {
+    @apply translate-x-[100%];
+  }
+  
+  .btn-tiktok {
+    @apply relative overflow-hidden px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300;
+    background: var(--gradient-tiktok);
+    box-shadow: 0 10px 40px hsl(var(--tiktok) / 0.3);
+  }
+  
+  .btn-tiktok:hover {
+    @apply scale-105;
+    box-shadow: 0 0 30px hsl(var(--tiktok) / 0.5);
+  }
+  
+  /* Card Variants */
+  .card-premium {
+    @apply relative overflow-hidden rounded-3xl p-8 border transition-all duration-500;
+    background: var(--gradient-surface);
+    border-color: hsl(var(--border));
+    box-shadow: var(--shadow-card);
+  }
+  
+  .card-premium:hover {
+    @apply scale-105 -translate-y-2;
+    border-color: hsl(var(--primary) / 0.3);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  }
+  
+  .card-premium::before {
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500;
+    content: '';
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--secondary) / 0.1));
+  }
+  
+  .card-premium:hover::before {
+    @apply opacity-100;
+  }
+  
+  .card-premium::after {
+    @apply absolute top-0 left-0 w-full h-1;
+    content: '';
+    background: var(--gradient-primary);
+  }
+  
+  /* Text Gradients */
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .text-gradient-tiktok {
+    background: var(--gradient-tiktok);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  /* Floating Animation */
+  .floating {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+  }
+  
+  /* Pulse Animation */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes pulse-glow {
+    from { box-shadow: var(--shadow-primary); }
+    to { box-shadow: var(--shadow-glow); }
+  }
+}
