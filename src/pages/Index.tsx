@@ -108,7 +108,7 @@ const Index = () => {
             <div className="max-w-md mx-auto mb-8">
               <div className="relative rounded-xl overflow-hidden shadow-2xl">
                 <iframe
-                  src="https://www.youtube.com/embed/_pq_uyRLi34"
+                  src="https://www.youtube.com/embed/qKzJBlCQ5KE"
                   title="Instagram Growth Video"
                   className="w-full h-[500px]"
                   frameBorder="0"
